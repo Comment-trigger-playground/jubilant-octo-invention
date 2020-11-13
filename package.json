@@ -1,0 +1,22 @@
+{
+  "name": "@khala/jubilant-octo-invention",
+  "version": "1.0.0",
+  "description": "Test pckg",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Comment-trigger-playground/jubilant-octo-invention.git"
+  },
+  "author": "Karel Hala",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Comment-trigger-playground/jubilant-octo-invention/issues"
+  },
+  "homepage": "https://github.com/Comment-trigger-playground/jubilant-octo-invention#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}

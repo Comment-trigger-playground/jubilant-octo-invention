@@ -1,0 +1,15 @@
+language: node_js
+cache:
+  directories:
+  - "$HOME/.npm"
+node_js:
+- '12'
+install:
+  - npm ci
+before_install:
+ - printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+before_script:
+  - npm run test
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
