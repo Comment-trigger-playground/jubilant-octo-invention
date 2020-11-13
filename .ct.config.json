@@ -41,7 +41,7 @@
                 "actions": ["closed", "labeled"],
                 "conditions": [{
                     "type": "pull_request.labels",
-                    "contains": ["minor", "major", "bugfix"],
+                    "contains": ["release minor", "release major", "release bugfix"],
                     "notContains": ["released"]
                 }, {
                     "type": "pull_request.merged",
