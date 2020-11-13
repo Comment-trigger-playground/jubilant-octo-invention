@@ -1,0 +1,69 @@
+{
+    "mainteners": [
+        "karelhala",
+        "Comment-trigger-playground/some-team"
+    ],
+    "rules": {
+        "github": [{
+            "events": [{
+                "type": "pull_request",
+                "actions": ["closed", "labeled"],
+                "conditions": [{
+                    "type": "pull_request.labels",
+                    "contains": ["release minor", "release major", "release bugfix"],
+                    "notContains": ["released"]
+                }, {
+                    "type": "pull_request.merged",
+                    "contains": [true]
+                }]
+            }, {
+                "type": "issue_comment",
+                "actions": ["edited", "created"],
+                "conditions": [
+                    {
+                        "type": "comment.body",
+                        "contains": ["@ct-octobot release minor", "@ct-octobot release major", "@ct-octobot release bugfix"]
+                    }, {
+                        "type": "pull_request.merged",
+                        "contains": [true]
+                    }
+                ]
+            }],
+            "actions": [{
+                "type": "comment",
+                "value": "This PR triggered a new release of main to prod-beta and created new tag.",
+                "context": "pull_request"
+            }]
+        }],
+        "travis-ci": [{
+            "events": [{
+                "type": "pull_request",
+                "actions": ["closed", "labeled"],
+                "conditions": [{
+                    "type": "pull_request.labels",
+                    "contains": ["minor", "major", "bugfix"],
+                    "notContains": ["released"]
+                }, {
+                    "type": "pull_request.merged",
+                    "contains": [true]
+                }]
+            }, {
+                "type": "issue_comment",
+                "actions": ["edited", "created"],
+                "conditions": [
+                    {
+                        "type": "comment.body",
+                        "contains": ["@ct-octobot release minor", "@ct-octobot release major", "@ct-octobot release bugfix"]
+                    }, {
+                        "type": "pull_request.merged",
+                        "contains": [true]
+                    }
+                ]
+            }],
+            "actions": [{
+                "release_type": "minor",
+                "script": "npm run release:bot"
+            }]
+        }]
+    }
+}
